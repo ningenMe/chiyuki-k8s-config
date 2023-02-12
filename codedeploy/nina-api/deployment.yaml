@@ -20,4 +20,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: env-config
-
+        - name: nina-envoy
+          image: AWS_ECR_REGISTRY/nina-envoy-repository:IMAGE_TAG
+          ports:
+            - containerPort: 8082
+          envFrom:
+            - configMapRef:
+                name: env-config
