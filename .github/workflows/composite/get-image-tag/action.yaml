@@ -1,0 +1,31 @@
+name: get-image-tag
+description: get-image-tag
+inputs:
+  role-to-assume:
+    required: true
+  aws-region:
+    required: true
+  aws-ecr-registry:
+    required: true
+  aws-ecr-repository:
+    required: true
+outputs:
+  image-tag:
+    value: ${{ steps.get-image-tag.outputs.image-tag }}
+runs:
+  using: composite
+  steps:
+    - id: configure-aws-credentials
+      name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v1.7.0
+      with:
+        role-to-assume: ${{inputs.role-to-assume}}
+        role-session-name: github-actions-role
+        aws-region: ${{inputs.aws-region}}
+    - id: get-image-tag
+      name: get-image-tag
+      run: |
+        aws ecr get-login-password --region ${{inputs.aws-region}} | docker login --username AWS --password-stdin ${{ inputs.aws-ecr-registry }}
+        IMAGE_TAG=`aws ecr describe-images --repository-name ${{inputs.aws-ecr-repository}} --query 'reverse(sort_by(imageDetails,& imagePushedAt))[0].imageTags[0]' | awk -F '"' '{print $2}'`
+        echo "image-tag=${IMAGE_TAG}" >> $GITHUB_OUTPUT
+      shell: bash
