@@ -1,4 +1,4 @@
-name: env-config-deploy
+name: nina-api-deploy
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
         name: codedeploy
         uses: ./.github/workflows/composite/codedeploy
         with:
-          application-name: env-config
+          application-name: nina-api
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ${{ needs.constant.outputs.aws-region }}
           aws-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
