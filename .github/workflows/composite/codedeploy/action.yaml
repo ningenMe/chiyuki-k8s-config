@@ -24,11 +24,10 @@ runs:
     - id: build-appspec
       name: build appspec
       run: |
-        cd ./${{ inputs.application-name }}/script
-        sed -i -e 's/AWS_REGION/${{ inputs.aws-region }}/g' deploy.sh
+        sed -i -e 's/AWS_REGION/${{ inputs.aws-region }}/g' script/deploy.sh
         sed -i -e 's/AWS_ECR_REGISTRY/${{ inputs.aws-ecr-registry }}/g' deployment.yaml | true
       shell: bash
-      working-directory: codedeploy
+      working-directory: codedeploy/${{ inputs.application-name }}
     - id: appspec-s3-upload
       name: appspec s3 upload
       run: |
