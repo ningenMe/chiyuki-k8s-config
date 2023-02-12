@@ -1,0 +1,13 @@
+name: single-deploy
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  uses: ./.github/workflows/reusable-deploy.yaml
+  with:
+    application-name: akari-front
