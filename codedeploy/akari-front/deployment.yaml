@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akari-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akari-front
+  template:
+    metadata:
+      labels:
+        app: akari-front
+    spec:
+      containers:
+        - name: akari-front
+          image: AWS_ECR_REGISTRY/akari-front-repository:IMAGE_TAG
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: env-config
