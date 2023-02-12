@@ -22,15 +22,17 @@ runs:
     - id: build-appspec
       name: build appspec
       run: |
-        cd ./codedeploy/${{ inputs.application-name }}/script
+        cd ./${{ inputs.application-name }}/script
         sed -i -e 's/AWS_REGION/${{ inputs.aws-region }}/g' deploy.sh
       shell: bash
+      working-directory: codedeploy
     - id: appspec-s3-upload
       name: appspec s3 upload
       run: |
-        zip -r ${{ inputs.application-name }}.zip codedeploy/${{ inputs.application-name }}
+        zip -r ${{ inputs.application-name }}.zip ${{ inputs.application-name }}
         aws s3 cp ${{ inputs.application-name }}.zip s3://${{inputs.aws-s3-bucket}}/
       shell: bash
+      working-directory: codedeploy
     - id: codedeploy
       name: codedeploy
       run: |
