@@ -13,8 +13,9 @@ spec:
         app: nina-api
     spec:
       containers:
-        - name: net-front
+        - name: nina-api
           image: AWS_ECR_REGISTRY/nina-api-repository:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 8081
           envFrom:
