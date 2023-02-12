@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/nina-envoy
+hooks:
+  BeforeInstall:
+    - location: hoge.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: hoge.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deploy.sh
+      timeout: 600
+      runas: root
+  ApplicationStop:
+    - location: hoge.sh
+      timeout: 300
+      runas: root

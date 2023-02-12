@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nina-api
+  name: nina-envoy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nina-api
+      app: nina-envoy
   template:
     metadata:
       labels:
-        app: nina-api
+        app: nina-envoy
     spec:
       containers:
-        - name: nina-api
-          image: AWS_ECR_REGISTRY/nina-api-repository:IMAGE_TAG
+        - name: nina-envoy
+          image: AWS_ECR_REGISTRY/nina-envoy-repository:IMAGE_TAG
           ports:
-            - containerPort: 8081
+            - containerPort: 8082
           envFrom:
             - configMapRef:
                 name: env-config
-
