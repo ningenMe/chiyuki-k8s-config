@@ -22,7 +22,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    uses: ./.github/workflows/reusable-deploy.yaml
+    uses: ./.github/workflows/reusable/deploy.yaml
     with:
       application-name: ${{ inputs.application-name }}
     secrets: inherit
