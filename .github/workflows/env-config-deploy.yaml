@@ -1,0 +1,34 @@
+name: env-config-deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  constant:
+    runs-on: ubuntu-latest
+    outputs:
+      aws-region: ${{ steps.constant.outputs.aws-region }}
+    steps:
+      - id: checkout
+        name: checkout
+        uses: actions/checkout@v3.3.0
+      - id: constant
+        name: constant
+        uses: ./.github/workflows/composite/constant
+  codedeploy:
+    runs-on: ubuntu-latest
+    needs: [ constant ]
+    steps:
+      - id: checkout
+        name: checkout
+        uses: actions/checkout@v3.0.0
+      - id: codedeploy
+        name: codedeploy
+        uses: ./.github/workflows/composite/codedeploy
+        with:
+          application-name: env-config
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ needs.constant.outputs.aws-region }}
+          aws-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws-ecr-registry: ${{ secrets.AWS_ECR_REGISTRY }}
+          image-tag: ''

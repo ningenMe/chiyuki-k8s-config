@@ -12,7 +12,6 @@ on:
           - akari-front
           - nina-api
           - zeus-api
-          - env-config
 
 run-name: deploy ${{ inputs.application-name }}
 

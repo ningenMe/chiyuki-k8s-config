@@ -6,17 +6,7 @@ on:
 run-name: deploy all
 
 jobs:
-  env-config-deploy:
-    permissions:
-      id-token: write
-      contents: read
-    uses: ./.github/workflows/reusable-deploy.yaml
-    with:
-      application-name: env-config
-    secrets: inherit
-
   all-deploy:
-    needs: env-config-deploy
     strategy:
       matrix:
         application-name:
