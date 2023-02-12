@@ -5,18 +5,18 @@ files:
     destination: /home/ec2-user/env-config
 hooks:
   BeforeInstall:
-    - location: script/hoge.sh
+    - location: hoge.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: script/hoge.sh
+    - location: hoge.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: script/deploy.sh
+    - location: deploy.sh
       timeout: 600
       runas: root
   ApplicationStop:
-    - location: script/hoge.sh
+    - location: hoge.sh
       timeout: 300
       runas: root
