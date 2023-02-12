@@ -3,6 +3,10 @@ name: env-config-deploy
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   constant:
     runs-on: ubuntu-latest
