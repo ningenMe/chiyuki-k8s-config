@@ -8,6 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  uses: ./.github/workflows/reusable-deploy.yaml
-  with:
-    application-name: akari-front
+  reusable-deploy:
+    uses: ./.github/workflows/reusable-deploy.yaml
+    with:
+      application-name: akari-front
