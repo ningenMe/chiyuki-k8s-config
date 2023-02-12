@@ -19,7 +19,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: nina-envoy
+    app: nina-api
   ports:
     - protocol: TCP
       port: 8082
