@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: nina-api
-          image: AWS_ECR_REGISTRY/nina-api-repository:latest
-          imagePullPolicy: Never
+          image: AWS_ECR_REGISTRY/nina-api-repository:IMAGE_TAG
           ports:
             - containerPort: 8081
           envFrom:

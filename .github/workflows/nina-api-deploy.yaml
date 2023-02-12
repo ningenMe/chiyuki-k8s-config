@@ -34,15 +34,13 @@ jobs:
           aws-region: ${{ needs.constant.outputs.aws-region }}
           aws-ecr-registry: ${{ secrets.AWS_ECR_REGISTRY }}
           aws-ecr-repository: nina-api-repository
-      - id: hoge
-        run: |
-          echo ${{ steps.get-image-tag.outputs.image-tag }}
-#      - id: codedeploy
-#        name: codedeploy
-#        uses: ./.github/workflows/composite/codedeploy
-#        with:
-#          application-name: nina-api
-#          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-#          aws-region: ${{ needs.constant.outputs.aws-region }}
-#          aws-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
-#          aws-ecr-registry: ${{ secrets.AWS_ECR_REGISTRY }}
+      - id: codedeploy
+        name: codedeploy
+        uses: ./.github/workflows/composite/codedeploy
+        with:
+          application-name: nina-api
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ needs.constant.outputs.aws-region }}
+          aws-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws-ecr-registry: ${{ secrets.AWS_ECR_REGISTRY }}
+          image-tag: ${{ steps.get-image-tag.outputs.image-tag }}
