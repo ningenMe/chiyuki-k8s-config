@@ -6,8 +6,8 @@ on:
 jobs:
   reusable-deploy:
     permissions:
+      id-token: write
       contents: read
-      pull-requests: write
     uses: ./.github/workflows/reusable-deploy.yaml
     with:
       application-name: akari-front
