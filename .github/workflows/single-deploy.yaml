@@ -2,13 +2,27 @@ name: single-deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      application-name:
+        description: 'application-name'
+        required: true
+        default: akari-front
+        type: choice
+        options:
+          - akari-front
+          - nina-api
+          - zeus-api
+          - env-config
+
+run-name: deploy ${{ inputs.application-name }}
 
 jobs:
   reusable-deploy:
+
     permissions:
       id-token: write
       contents: read
     uses: ./.github/workflows/reusable-deploy.yaml
     with:
-      application-name: akari-front
+      application-name: ${{ inputs.application-name }}
     secrets: inherit
