@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiwa-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kiwa-api
+  template:
+    metadata:
+      labels:
+        app: kiwa-api
+    spec:
+      containers:
+        - name: kiwa-api
+          image: AWS_ECR_REGISTRY/kiwa-api-repository:IMAGE_TAG
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: env-config

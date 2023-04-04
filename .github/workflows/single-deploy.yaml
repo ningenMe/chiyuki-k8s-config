@@ -12,6 +12,7 @@ on:
           - akari-front
           - nina-api
           - zeus-api
+          - kiwa-api
 
 run-name: deploy ${{ inputs.application-name }}
 
