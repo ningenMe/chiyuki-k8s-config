@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: checkout
         name: checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.5.0
       - id: constant
         name: constant
         uses: ./.github/workflows/composite/constant
@@ -25,7 +25,7 @@ jobs:
     steps:
       - id: checkout
         name: checkout
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@v3.5.0
       - id: codedeploy
         name: codedeploy
         uses: ./.github/workflows/composite/codedeploy
