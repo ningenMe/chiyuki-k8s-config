@@ -28,4 +28,5 @@ runs:
         aws ecr get-login-password --region ${{inputs.aws-region}} | docker login --username AWS --password-stdin ${{ inputs.aws-ecr-registry }}
         IMAGE_TAG=`aws ecr describe-images --repository-name ${{inputs.aws-ecr-repository}} --query 'reverse(sort_by(imageDetails,& imagePushedAt))[0].imageTags[0]' | awk -F '"' '{print $2}'`
         echo "image-tag=${IMAGE_TAG}" >> $GITHUB_OUTPUT
+        echo "image-tag=${IMAGE_TAG}" >> $GITHUB_STEP_SUMMARY
       shell: bash
