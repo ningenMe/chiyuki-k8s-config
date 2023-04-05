@@ -29,7 +29,6 @@ jobs:
         name: constant
         uses: ./.github/workflows/composite/constant
   reusable-deploy:
-    runs-on: ubuntu-latest
     needs: [ constant ]
     permissions:
       id-token: write

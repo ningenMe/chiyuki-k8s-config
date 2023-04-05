@@ -18,7 +18,6 @@ jobs:
         name: constant
         uses: ./.github/workflows/composite/constant
   all-deploy:
-    runs-on: ubuntu-latest
     needs: [ constant ]
     strategy:
       matrix:
