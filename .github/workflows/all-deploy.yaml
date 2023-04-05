@@ -6,7 +6,20 @@ on:
 run-name: deploy all
 
 jobs:
+  constant:
+    runs-on: ubuntu-latest
+    outputs:
+      aws-region: ${{ steps.constant.outputs.aws-region }}
+    steps:
+      - id: checkout
+        name: checkout
+        uses: actions/checkout@v3.5.0
+      - id: constant
+        name: constant
+        uses: ./.github/workflows/composite/constant
   all-deploy:
+    runs-on: ubuntu-latest
+    needs: [ constant ]
     strategy:
       matrix:
         application-name:
@@ -20,4 +33,5 @@ jobs:
     uses: ./.github/workflows/reusable-deploy.yaml
     with:
       application-name: ${{ matrix.application-name }}
+      aws-region: ${{ needs.constant.outputs.aws-region }}
     secrets: inherit

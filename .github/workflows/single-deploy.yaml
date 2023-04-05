@@ -17,12 +17,25 @@ on:
 run-name: deploy ${{ inputs.application-name }}
 
 jobs:
+  constant:
+    runs-on: ubuntu-latest
+    outputs:
+      aws-region: ${{ steps.constant.outputs.aws-region }}
+    steps:
+      - id: checkout
+        name: checkout
+        uses: actions/checkout@v3.5.0
+      - id: constant
+        name: constant
+        uses: ./.github/workflows/composite/constant
   reusable-deploy:
-
+    runs-on: ubuntu-latest
+    needs: [ constant ]
     permissions:
       id-token: write
       contents: read
     uses: ./.github/workflows/reusable-deploy.yaml
     with:
       application-name: ${{ inputs.application-name }}
+      aws-region: ${{ needs.constant.outputs.aws-region }}
     secrets: inherit
