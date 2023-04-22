@@ -10,4 +10,5 @@ runs:
     - id: constant
       run: |
         echo "aws-region=ap-northeast-1" >> $GITHUB_OUTPUT
+        echo "node-version=v20.0.0" >> $GITHUB_OUTPUT
       shell: bash

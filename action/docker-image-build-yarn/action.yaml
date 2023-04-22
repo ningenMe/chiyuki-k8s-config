@@ -1,0 +1,25 @@
+name: docker-image-build-yarn
+description: docker-image-build-yarn
+inputs:
+  docker-image-name:
+    required: true
+  node-version:
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: setup-node
+      name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+    - id: yarn
+      name: yarn
+      run: |
+        yarn install
+        yarn build
+      shell: bash
+    - id: image-build
+      name: image build
+      run: docker build -t ${{ inputs.docker-image-name }} .
+      shell: bash
