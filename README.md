@@ -14,5 +14,6 @@ do
   gh secret set ROLE_TO_ASSUME --body "$ROLE_TO_ASSUME" --repo=ningenMe/$repo
   gh secret set AWS_ACCOUNT_ID --body "$AWS_ACCOUNT_ID" --repo=ningenMe/$repo
   gh secret set DEPLOY_TOKEN --body "$DEPLOY_TOKEN" --repo=ningenMe/$repo
+  gh secret set AWS_ECR_REGISTRY --body "$AWS_ECR_REGISTRY" --repo=ningenMe/$repo
 done
 ```
