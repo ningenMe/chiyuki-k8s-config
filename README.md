@@ -7,3 +7,12 @@
 | ![akari](./image/nina.png)       | [nina-api](https://github.com/ningenMe/nina-api)                     | githubのcontiribution集計ドメインのapi                         | go                  | 
 | ![suzu](./image/suzu.jpeg)       | [suzu-api](https://github.com/ningenMe/suzu-api)                     | ブログ管理ドメインのapi                                          | rust                | 
 | ![kiwa](./image/kiwa.png)        | [kiwa-api](https://github.com/ningenMe/kiwa-api)                     | 認証認可api                                                | kotlin + spring boot | 
+
+```shell
+for repo in chiyuki-k8s-config akari-front nina-api suzu-api kiwa-api miiko-api
+do
+  gh secret set ROLE_TO_ASSUME --body "$ROLE_TO_ASSUME" --repo=ningenMe/$repo
+  gh secret set AWS_ACCOUNT_ID --body "$AWS_ACCOUNT_ID" --repo=ningenMe/$repo
+  gh secret set DEPLOY_TOKEN --body "$DEPLOY_TOKEN" --repo=ningenMe/$repo
+done
+```
