@@ -28,6 +28,6 @@ runs:
         echo "java-version=17" >> $GITHUB_OUTPUT
         echo "java-distribution=temurin" >> $GITHUB_OUTPUT
         echo "gradle-version=7.4.2" >> $GITHUB_OUTPUT
-        echo "go-version=1.19.0" >> $GITHUB_OUTPUT
+        echo "go-version=1.19.1" >> $GITHUB_OUTPUT
         echo "node-version=v20.0.0" >> $GITHUB_OUTPUT
       shell: bash
