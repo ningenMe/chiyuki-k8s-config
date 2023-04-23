@@ -15,10 +15,11 @@ runs:
       run: |
         TOKEN=${{ inputs.deploy-token }}
         APP=${{ inputs.application-name }}
+        BODY=`printf '{"ref":"main", "inputs":{"application-name": "%s"}}' $APP`
         curl \
           -X POST \
           -H "Authorization: token $TOKEN" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/ningenMe/chiyuki-k8s-config/actions/workflows/single-deploy.yaml/dispatches \
-          -d `printf '{"ref":"main", "inputs":{"application-name": "%s"}}' $APP`
+          -d $BODY
       shell: bash
