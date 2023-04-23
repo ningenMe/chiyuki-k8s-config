@@ -1,0 +1,26 @@
+name: kick-deploy
+description: kick-deploy
+inputs:
+  deploy-token:
+    description: deploy-token
+    required: true
+  application-name:
+    description: application-name
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: kick-deploy
+      name: kick deploy
+      run: |
+        TOKEN=${{ inputs.deploy-token }}
+        APP=${{ inputs.application-name }}
+        curl \
+          -X POST \
+          -H "Authorization: token $TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/ningenMe/chiyuki-k8s-config/actions/workflows/single-deploy.yaml/dispatches \
+          -d @- <<EOS
+            {"ref":"main", "inputs":{"application-name": "$APP"}}
+          EOS
+      shell: bash
