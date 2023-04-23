@@ -1,12 +1,5 @@
 name: aws-config
 description: aws-config
-outputs:
-  deploy-key:
-    description: deploy-key
-    value: ${{ steps.aws-config.outputs.deploy-key }}
-  aws-account-id:
-    description: aws-account-id
-    value: ${{ steps.aws-config.outputs.aws-account-id }}
 runs:
   using: composite
   steps:
