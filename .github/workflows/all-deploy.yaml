@@ -24,7 +24,6 @@ jobs:
         application-name:
           - akari-front
           - nina-api
-          - zeus-api
           - kiwa-api
           - miiko-api
     permissions:

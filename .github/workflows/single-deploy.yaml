@@ -11,7 +11,6 @@ on:
         options:
           - akari-front
           - nina-api
-          - zeus-api
           - kiwa-api
           - miiko-api
 
