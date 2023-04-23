@@ -1,11 +1,8 @@
-name: docker-image-build-yarn
-description: docker-image-build-yarn
+name: build-yarn
+description: build-yarn
 inputs:
-  aws-ecr-registry:
-    required: true
-  docker-image-name:
-    required: true
   node-version:
+    description: node-version
     required: true
 runs:
   using: composite
@@ -20,8 +17,4 @@ runs:
       run: |
         yarn install
         yarn build
-      shell: bash
-    - id: image-build
-      name: image build
-      run: docker build -t ${{ inputs.aws-ecr-registry }}/${{ inputs.docker-image-name }} .
       shell: bash

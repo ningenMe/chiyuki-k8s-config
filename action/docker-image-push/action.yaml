@@ -19,6 +19,10 @@ runs:
         role-to-assume: ${{inputs.role-to-assume}}
         role-session-name: github-actions-role
         aws-region: ${{inputs.aws-region}}
+    - id: image-build
+      name: image build
+      run: docker build -t ${{ inputs.aws-ecr-registry }}/${{ inputs.docker-image-name }} .
+      shell: bash
     - id: push-image
       name: push image
       run: |
