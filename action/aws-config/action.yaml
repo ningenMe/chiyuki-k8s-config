@@ -1,0 +1,19 @@
+name: aws-config
+description: aws-config
+outputs:
+  deploy-key:
+    description: deploy-key
+    value: ${{ steps.aws-config.outputs.deploy-key }}
+  aws-account-id:
+    description: aws-account-id
+    value: ${{ steps.aws-config.outputs.aws-account-id }}
+runs:
+  using: composite
+  steps:
+    - id: aws-config
+      run: |
+        DEPLOY_KEY=`aws ssm get-parameter --name /ACTIONS/DEPLOY_KEY | jq .Parameter | jq .Value -r`
+        AWS_ACCOUNT_ID=`aws ssm get-parameter --name /ACTIONS/AWS_ACCOUNT_ID | jq .Parameter | jq .Value -r`
+        echo "deploy-key=$DEPLOY_KEY" >> $GITHUB_OUTPUT
+        echo "aws-account-id=$AWS_ACCOUNT_ID" >> $GITHUB_OUTPUT
+      shell: bash
