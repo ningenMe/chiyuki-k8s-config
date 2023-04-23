@@ -13,6 +13,7 @@ on:
           - nina-api
           - zeus-api
           - kiwa-api
+          - miiko-api
 
 run-name: deploy ${{ inputs.application-name }}
 

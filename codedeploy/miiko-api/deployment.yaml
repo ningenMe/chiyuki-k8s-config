@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miiko-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: miiko-api
+  template:
+    metadata:
+      labels:
+        app: miiko-api
+    spec:
+      containers:
+        - name: miiko-api
+          image: AWS_ECR_REGISTRY/miiko-api-repository:IMAGE_TAG
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: env-config
+        - name: auth-redis
+          image: redis:7.0
+          ports:
+            - containerPort: 6379

@@ -26,6 +26,7 @@ jobs:
           - nina-api
           - zeus-api
           - kiwa-api
+          - miiko-api
     permissions:
       id-token: write
       contents: read
