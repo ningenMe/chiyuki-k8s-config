@@ -16,11 +16,7 @@ spec:
         - name: miiko-api
           image: AWS_ECR_REGISTRY/miiko-api-repository:IMAGE_TAG
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           envFrom:
             - configMapRef:
                 name: env-config
-        - name: auth-redis
-          image: redis:7.0
-          ports:
-            - containerPort: 6379
