@@ -1,7 +1,18 @@
-name: env-config-deploy
+name: single-infra-deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      infra-name:
+        description: 'infra-name'
+        required: true
+        default: env-config
+        type: choice
+        options:
+          - env-config
+          - proxy
+
+run-name: deploy ${{ inputs.infra-name }}
 
 permissions:
   id-token: write
@@ -30,7 +41,7 @@ jobs:
         name: codedeploy
         uses: ./.github/workflows/composite/codedeploy
         with:
-          application-name: env-config
+          application-name: ${{ inputs.infra-name }}
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ${{ needs.constant.outputs.aws-region }}
           aws-s3-bucket: ${{ secrets.AWS_S3_BUCKET }}
