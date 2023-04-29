@@ -1,4 +1,4 @@
-name: single-deploy
+name: single-application-deploy
 
 on:
   workflow_dispatch:

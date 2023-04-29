@@ -20,6 +20,6 @@ runs:
           -X POST \
           -H "Authorization: token $TOKEN" \
           -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/ningenMe/chiyuki-k8s-config/actions/workflows/single-deploy.yaml/dispatches \
+          https://api.github.com/repos/ningenMe/chiyuki-k8s-config/actions/workflows/single-application-deploy.yaml/dispatches \
           -d "$BODY"
       shell: bash
