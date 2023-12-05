@@ -7,6 +7,7 @@
 | <img src="./document/image/nina.png" alt="image" width="100" height="100">     | [nina-api](https://github.com/ningenMe/nina-api) <br/> [nina-batch](https://github.com/ningenMe/nina-batch) | githubのcontiribution集計ドメインのapi                | go                   | 
 | <img src="./document/image/suzu.jpeg" alt="image" width="100" height="100">    | [suzu-backend](https://github.com/ningenMe/suzu-backend)                                                    | ブログ管理ドメインのapi/batch                           | rust                 | 
 | <img src="./document/image/kiwa.png" alt="image" width="100" height="100">     | [kiwa-api](https://github.com/ningenMe/kiwa-api)                                                            | 認証認可api                                       | kotlin + spring boot | 
+| <img src="./document/image/miiko.jpeg" alt="image" width="100" height="100">   | [miiko-api](https://github.com/ningenMe/miiko-api)                                                          | 競技プログラミングのジャンル管理api                           | go + connect         | 
 
 ## secret setting to each repository
 ```shell
