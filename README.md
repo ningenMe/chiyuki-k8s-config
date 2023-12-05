@@ -1,12 +1,12 @@
 # ningenme.net
 
-| symbol                                                                | repository                                                                                                  | responsibility                                | tech-stack           |
-|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------|----------------------|
-| ![chiyuki](./image/chiyuki.jpeg)                                      | [chiyuki-k8s-config](https://github.com/ningenMe/chiyuki-k8s-config)                                        | 趣味開発アプリケーション全般のk8sクラスタ管理                      | kubernetes           |  
-| <img src="./image/akari.jpeg" alt="image" width="auto" height="auto"> | [akari-front](https://github.com/ningenMe/akari-front)                                                      | [ningenme.net](https://ningenme.net/) のフロント全般 | typescript + nextjs  | 
-| ![akari](./image/nina.png)                                            | [nina-api](https://github.com/ningenMe/nina-api) <br/> [nina-batch](https://github.com/ningenMe/nina-batch) | githubのcontiribution集計ドメインのapi                | go                   | 
-| ![suzu](./image/suzu.jpeg)                                            | [suzu-backend](https://github.com/ningenMe/suzu-backend)                                                    | ブログ管理ドメインのapi/batch                           | rust                 | 
-| <img src="./image/kiwa.png" alt="image" width="auto" height="auto">   | [kiwa-api](https://github.com/ningenMe/kiwa-api)                                                            | 認証認可api                                       | kotlin + spring boot | 
+| symbol                                                                         | repository                                                                                                  | responsibility                                | tech-stack           |
+|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------|----------------------|
+| <img src="./document/image/chiyuki.jpeg" alt="image" width="100" height="100"> | [chiyuki-k8s-config](https://github.com/ningenMe/chiyuki-k8s-config)                                        | 趣味開発アプリケーション全般のk8sクラスタ管理                      | kubernetes           |  
+| <img src="./document/image/akari.jpeg" alt="image" width="100" height="100">   | [akari-front](https://github.com/ningenMe/akari-front)                                                      | [ningenme.net](https://ningenme.net/) のフロント全般 | typescript + nextjs  | 
+| <img src="./document/image/nina.png" alt="image" width="100" height="100">     | [nina-api](https://github.com/ningenMe/nina-api) <br/> [nina-batch](https://github.com/ningenMe/nina-batch) | githubのcontiribution集計ドメインのapi                | go                   | 
+| <img src="./document/image/suzu.jpeg" alt="image" width="100" height="100">    | [suzu-backend](https://github.com/ningenMe/suzu-backend)                                                    | ブログ管理ドメインのapi/batch                           | rust                 | 
+| <img src="./document/image/kiwa.png" alt="image" width="100" height="100">     | [kiwa-api](https://github.com/ningenMe/kiwa-api)                                                            | 認証認可api                                       | kotlin + spring boot | 
 
 ```shell
 for repo in chiyuki-k8s-config akari-front nina-api suzu-api kiwa-api miiko-api
