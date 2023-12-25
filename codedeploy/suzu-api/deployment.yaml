@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suzu-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: suzu-api
+  template:
+    metadata:
+      labels:
+        app: suzu-api
+    spec:
+      containers:
+        - name: suzu-api
+          image: AWS_ECR_REGISTRY/suzu-api-repository:IMAGE_TAG
+          ports:
+            - containerPort: 50051
+          envFrom:
+            - configMapRef:
+                name: env-config
