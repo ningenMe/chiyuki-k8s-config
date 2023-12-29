@@ -31,6 +31,10 @@ runs:
           sed -i -e 's/AWS_ECR_REGISTRY/${{ inputs.aws-ecr-registry }}/g' deployment.yaml
           sed -i -e 's/IMAGE_TAG/${{ inputs.image-tag }}/g' deployment.yaml
         fi
+        if [[ -e cronjob.yaml ]]; then
+          sed -i -e 's/AWS_ECR_REGISTRY/${{ inputs.aws-ecr-registry }}/g' cronjob.yaml
+          sed -i -e 's/IMAGE_TAG/${{ inputs.image-tag }}/g' cronjob.yaml
+        fi
       shell: bash
       working-directory: codedeploy/${{ inputs.application-name }}
     - id: appspec-s3-upload
