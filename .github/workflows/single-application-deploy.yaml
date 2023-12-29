@@ -14,6 +14,7 @@ on:
           - kiwa-api
           - miiko-api
           - suzu-api
+          - suzu-batch
 
 run-name: deploy ${{ inputs.application-name }}
 

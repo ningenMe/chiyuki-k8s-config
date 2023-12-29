@@ -27,6 +27,7 @@ jobs:
           - kiwa-api
           - miiko-api
           - suzu-api
+          - suzu-batch
     permissions:
       id-token: write
       contents: read
