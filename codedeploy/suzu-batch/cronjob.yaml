@@ -4,6 +4,8 @@ metadata:
   name: suzu-batch
 spec:
   schedule: "*/15 * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   concurrencyPolicy: Forbid
   startingDeadlineSeconds: 30
   jobTemplate:
