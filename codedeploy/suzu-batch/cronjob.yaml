@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: suzu-batch
 spec:
-  schedule: "*/15 * * * *"
+  schedule: "0 * * * *"
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   concurrencyPolicy: Forbid
