@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ningenme-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ningenme-redis
+  template:
+    metadata:
+      labels:
+        app: ningenme-redis
+    spec:
+      containers:
+        - name: ningenme-redis
+          image: redis:7.0
+          ports:
+            - containerPort: 6379

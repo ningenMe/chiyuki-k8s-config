@@ -16,6 +16,7 @@ on:
           - suzu-api
           - suzu-batch
           - env-config
+          - ningenme-redis
           - proxy
 
 run-name: deploy ${{ inputs.application-name }}

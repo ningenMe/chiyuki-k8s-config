@@ -28,6 +28,9 @@ jobs:
           - miiko-api
           - suzu-api
           - suzu-batch
+          - env-config
+          - ningenme-redis
+          - proxy
     permissions:
       id-token: write
       contents: read
