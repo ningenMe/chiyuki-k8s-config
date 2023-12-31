@@ -20,7 +20,3 @@ spec:
           envFrom:
             - configMapRef:
                 name: env-config
-        - name: auth-redis
-          image: redis:7.0
-          ports:
-            - containerPort: 6379
