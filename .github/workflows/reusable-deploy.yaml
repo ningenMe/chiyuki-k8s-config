@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3.5.0
       - id: get-image-tag
         name: get image tag
-        if: ${{ inputs.application-name != 'env-config' && inputs.application-name != 'proxy' }}
+        if: ${{ inputs.application-name != 'env-config' && inputs.application-name != 'proxy' && inputs.application-name != 'ningenme-redis' }}
         uses: ./.github/workflows/composite/get-image-tag
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
