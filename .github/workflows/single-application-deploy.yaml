@@ -15,6 +15,7 @@ on:
           - miiko-api
           - suzu-api
           - suzu-batch
+          - roman-api
           - env-config
           - ningenme-redis
           - proxy
