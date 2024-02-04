@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roman-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: roman-api
+  template:
+    metadata:
+      labels:
+        app: roman-api
+    spec:
+      containers:
+        - name: roman-api
+          image: AWS_ECR_REGISTRY/roman-api-repository:IMAGE_TAG
+          ports:
+            - containerPort: 50051
+          envFrom:
+            - configMapRef:
+                name: env-config
