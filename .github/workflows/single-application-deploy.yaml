@@ -16,6 +16,7 @@ on:
           - suzu-api
           - suzu-batch
           - roman-api
+          - geeq-api
           - env-config
           - ningenme-redis
           - proxy
