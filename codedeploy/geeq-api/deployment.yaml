@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geeq-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geeq-api
+  template:
+    metadata:
+      labels:
+        app: geeq-api
+    spec:
+      containers:
+        - name: geeq-api
+          image: AWS_ECR_REGISTRY/geeq-api-repository:IMAGE_TAG
+          ports:
+            - containerPort: 50051
+          envFrom:
+            - configMapRef:
+                name: env-config

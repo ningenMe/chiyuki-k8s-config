@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  ningenme-mysql:
+    image: mysql:8.0
+    container_name: ningenme-mysql
+    environment:
+      MYSQL_DATABASE: ningenme
+      MYSQL_ROOT_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./ningenme-mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  ningenme-redis:
+    container_name: ningenme-redis
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./:/data
