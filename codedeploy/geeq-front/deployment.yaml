@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geeq-front
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: geeq-front
+  template:
+    metadata:
+      labels:
+        app: geeq-front
+    spec:
+      containers:
+        - name: geeq-front
+          image: AWS_ECR_REGISTRY/geeq-front-repository:IMAGE_TAG
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: env-config
