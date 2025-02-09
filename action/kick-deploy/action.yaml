@@ -22,4 +22,8 @@ runs:
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/ningenMe/chiyuki-k8s-config/actions/workflows/single-application-deploy.yaml/dispatches \
           -d "$BODY"
+        if [ $? -ne 0 ]; then
+          echo "Failed to kick deploy"
+          exit 1
+        fi
       shell: bash
